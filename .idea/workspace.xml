@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b6482ce6-210c-4c41-aac1-a11187145400" name="变更" comment="softmax learning">
-      <change afterPath="$PROJECT_DIR$/softmax.py" afterDir="false" />
+    <list default="true" id="b6482ce6-210c-4c41-aac1-a11187145400" name="变更" comment="softmax tune_hyperparameters">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cs231n/classifiers/softmax.py" beforeDir="false" afterPath="$PROJECT_DIR$/cs231n/classifiers/softmax.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cs231n/data_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/cs231n/data_utils.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/softmax.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/softmax.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/softmax.py" beforeDir="false" afterPath="$PROJECT_DIR$/softmax.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -236,7 +234,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679983626820</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="softmax tune_hyperparameters">
+      <created>1679993462602</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1679993462602</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -258,6 +263,7 @@
     </ignored-roots>
     <MESSAGE value="cs231" />
     <MESSAGE value="softmax learning" />
-    <option name="LAST_COMMIT_MESSAGE" value="softmax learning" />
+    <MESSAGE value="softmax tune_hyperparameters" />
+    <option name="LAST_COMMIT_MESSAGE" value="softmax tune_hyperparameters" />
   </component>
 </project>
