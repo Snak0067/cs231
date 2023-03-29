@@ -73,21 +73,21 @@ def tune_hyperparameters():
     y_test_pred = best_softmax.predict(X_test)
     test_accuracy = np.mean(y_test == y_test_pred)
     print('softmax on raw pixels final test set accuracy: %f' % (test_accuracy,))
+
     # Visualize the learned weights for each class
     w = best_softmax.W[:-1, :]  # strip out the bias
     w = w.reshape(32, 32, 3, 10)
-
     w_min, w_max = np.min(w), np.max(w)
 
     classes = ['plane', 'car', 'bird', 'cat', 'deer', 'dog', 'frog', 'horse', 'ship', 'truck']
     for i in range(10):
         plt.subplot(2, 5, i + 1)
-
         # Rescale the weights to be between 0 and 255
         wimg = 255.0 * (w[:, :, :, i].squeeze() - w_min) / (w_max - w_min)
         plt.imshow(wimg.astype('uint8'))
         plt.axis('off')
         plt.title(classes[i])
+    plt.show()
 
 
 if __name__ == '__main__':
