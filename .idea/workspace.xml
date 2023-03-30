@@ -4,14 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b6482ce6-210c-4c41-aac1-a11187145400" name="变更" comment="softmax tune_hyperparameters">
-      <change afterPath="$PROJECT_DIR$/.ipynb_checkpoints/two_layer_net-checkpoint.ipynb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/two_layer_net.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/assignment1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/assignment1.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="b6482ce6-210c-4c41-aac1-a11187145400" name="变更" comment="softmax implement layers">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cs231n/layers.py" beforeDir="false" afterPath="$PROJECT_DIR$/cs231n/layers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/two_layer_net.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/two_layer_net.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/two_layer_net.py" beforeDir="false" afterPath="$PROJECT_DIR$/two_layer_net.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -256,7 +253,7 @@
       <workItem from="1680068630974" duration="5875000" />
       <workItem from="1680075492286" duration="4840000" />
       <workItem from="1680138347939" duration="7506000" />
-      <workItem from="1680156393218" duration="3145000" />
+      <workItem from="1680156393218" duration="4047000" />
     </task>
     <task id="LOCAL-00001" summary="cs231">
       <created>1679628143173</created>
@@ -335,7 +332,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680081625238</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="softmax implement layers">
+      <created>1680160707447</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1680160707447</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -373,10 +377,11 @@
     <MESSAGE value="cs231" />
     <MESSAGE value="softmax learning" />
     <MESSAGE value="softmax tune_hyperparameters" />
-    <option name="LAST_COMMIT_MESSAGE" value="softmax tune_hyperparameters" />
+    <MESSAGE value="softmax implement layers" />
+    <option name="LAST_COMMIT_MESSAGE" value="softmax implement layers" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/assignment1$softmax.coverage" NAME="softmax 覆盖结果" MODIFIED="1680146240948" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/assignment1$two_layer_net.coverage" NAME="two_layer_net 覆盖结果" MODIFIED="1680160274749" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/assignment1$two_layer_net.coverage" NAME="two_layer_net 覆盖结果" MODIFIED="1680161320949" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
