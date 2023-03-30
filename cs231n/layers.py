@@ -771,13 +771,27 @@ def svm_loss(x, y):
     - dx: Gradient of the loss with respect to x
     """
     loss, dx = None, None
-
+    num_train = x.shape[0]
+    num_classes = x.shape[1]
     ###########################################################################
     # TODO: Copy over your solution from A1.
     ###########################################################################
     # *****START OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
 
-    pass
+    # compute loss
+    scores = x
+    scores_correct = scores[np.arange(num_train), y]  # 1 by N
+    scores_correct = np.reshape(scores_correct, (num_train, 1))  # N by 1
+    margins = scores - scores_correct + 1.0  # N by C
+    margins[np.arange(num_train), y] = 0
+    margins[margins < 0] = 0
+    loss = 0.0
+    loss += np.sum(margins) / num_train
+    # compute grad
+    margins[margins > 0] = 1.0
+    row_sum = np.sum(margins, axis=1)  # 1 by N
+    margins[np.arange(num_train), y] = -row_sum
+    dx = margins / num_train
 
     # *****END OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
     ###########################################################################
@@ -800,15 +814,18 @@ def softmax_loss(x, y):
     - loss: Scalar giving the loss
     - dx: Gradient of the loss with respect to x
     """
-    loss, dx = None, None
-
     ###########################################################################
     # TODO: Copy over your solution from A1.
     ###########################################################################
     # *****START OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
-
-    pass
-
+    # loss
+    probs = np.exp(x - np.max(x, axis=1, keepdims=True))
+    probs /= np.sum(probs, axis=1, keepdims=True)
+    N = x.shape[0]
+    loss = -np.sum(np.log(probs[np.arange(N), y])) / N
+    dx = probs.copy()
+    dx[np.arange(N), y] -= 1
+    dx /= N
     # *****END OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
     ###########################################################################
     #                             END OF YOUR CODE                            #
