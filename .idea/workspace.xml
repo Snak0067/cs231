@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b6482ce6-210c-4c41-aac1-a11187145400" name="变更" comment="softmax implement ReLU_activation">
+    <list default="true" id="b6482ce6-210c-4c41-aac1-a11187145400" name="变更" comment="implement softmax_loss and svm_loss">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cs231n/layers.py" beforeDir="false" afterPath="$PROJECT_DIR$/cs231n/layers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/two_layer_net.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/two_layer_net.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/two_layer_net.py" beforeDir="false" afterPath="$PROJECT_DIR$/two_layer_net.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -254,7 +252,7 @@
       <workItem from="1680068630974" duration="5875000" />
       <workItem from="1680075492286" duration="4840000" />
       <workItem from="1680138347939" duration="7506000" />
-      <workItem from="1680156393218" duration="9317000" />
+      <workItem from="1680156393218" duration="9609000" />
     </task>
     <task id="LOCAL-00001" summary="cs231">
       <created>1679628143173</created>
@@ -347,7 +345,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680161605735</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="implement softmax_loss and svm_loss">
+      <created>1680166901328</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1680166901328</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -387,7 +392,8 @@
     <MESSAGE value="softmax tune_hyperparameters" />
     <MESSAGE value="softmax implement layers" />
     <MESSAGE value="softmax implement ReLU_activation" />
-    <option name="LAST_COMMIT_MESSAGE" value="softmax implement ReLU_activation" />
+    <MESSAGE value="implement softmax_loss and svm_loss" />
+    <option name="LAST_COMMIT_MESSAGE" value="implement softmax_loss and svm_loss" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/assignment1$softmax.coverage" NAME="softmax 覆盖结果" MODIFIED="1680146240948" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
