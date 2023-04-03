@@ -4,8 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b6482ce6-210c-4c41-aac1-a11187145400" name="变更" comment="implement softmax_loss and svm_loss">
+    <list default="true" id="b6482ce6-210c-4c41-aac1-a11187145400" name="变更" comment="implement two_layer_network">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cs231n/classifiers/fc_net.py" beforeDir="false" afterPath="$PROJECT_DIR$/cs231n/classifiers/fc_net.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cs231n/optim.py" beforeDir="false" afterPath="$PROJECT_DIR$/cs231n/optim.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cs231n/solver.py" beforeDir="false" afterPath="$PROJECT_DIR$/cs231n/solver.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/two_layer_net.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/two_layer_net.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/two_layer_net.py" beforeDir="false" afterPath="$PROJECT_DIR$/two_layer_net.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -51,7 +55,9 @@
     <setting file="file://$USER_HOME$/AppData/Local/JetBrains/PyCharm2022.3/python_stubs/1214555841/builtins.py" root0="SKIP_INSPECTION" />
     <setting file="file://$USER_HOME$/AppData/Local/JetBrains/PyCharmCE2022.3/python_stubs/1214555841/builtins.py" root0="SKIP_INSPECTION" />
     <setting file="file://D:/ProgramData/anaconda3/Lib/site-packages/matplotlib/pyplot.py" root0="SKIP_INSPECTION" />
+    <setting file="file://D:/ProgramData/anaconda3/Lib/site-packages/numpy/core/_methods.py" root0="SKIP_INSPECTION" />
     <setting file="file://D:/ProgramData/anaconda3/Lib/site-packages/numpy/core/fromnumeric.py" root0="SKIP_INSPECTION" />
+    <setting file="file://D:/ProgramData/anaconda3/Lib/site-packages/numpy/core/function_base.py" root0="SKIP_INSPECTION" />
     <setting file="file://D:/ProgramData/anaconda3/Lib/site-packages/numpy/core/multiarray.py" root0="SKIP_INSPECTION" />
     <setting file="file://D:/ProgramData/anaconda3/Lib/site-packages/tqdm/std.py" root0="SKIP_INSPECTION" />
   </component>
@@ -84,7 +90,7 @@
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "preferences.editor",
+    "settings.editor.selected.configurable": "preferences.fileTypes",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -252,7 +258,7 @@
       <workItem from="1680068630974" duration="5875000" />
       <workItem from="1680075492286" duration="4840000" />
       <workItem from="1680138347939" duration="7506000" />
-      <workItem from="1680156393218" duration="9609000" />
+      <workItem from="1680156393218" duration="24151000" />
     </task>
     <task id="LOCAL-00001" summary="cs231">
       <created>1679628143173</created>
@@ -352,7 +358,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680166901328</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="implement two_layer_network">
+      <created>1680167183674</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1680167183674</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -393,10 +406,22 @@
     <MESSAGE value="softmax implement layers" />
     <MESSAGE value="softmax implement ReLU_activation" />
     <MESSAGE value="implement softmax_loss and svm_loss" />
-    <option name="LAST_COMMIT_MESSAGE" value="implement softmax_loss and svm_loss" />
+    <MESSAGE value="implement two_layer_network" />
+    <option name="LAST_COMMIT_MESSAGE" value="implement two_layer_network" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/two_layer_net.py</url>
+          <line>118</line>
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/assignment1$softmax.coverage" NAME="softmax 覆盖结果" MODIFIED="1680146240948" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/assignment1$two_layer_net.coverage" NAME="two_layer_net 覆盖结果" MODIFIED="1680165038035" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/assignment1$two_layer_net.coverage" NAME="two_layer_net 覆盖结果" MODIFIED="1680484533236" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

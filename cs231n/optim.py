@@ -1,41 +1,35 @@
 import numpy as np
 
 """
-This file implements various first-order update rules that are commonly used
-for training neural networks. Each update rule accepts current weights and the
-gradient of the loss with respect to those weights and produces the next set of
-weights. Each update rule has the same interface:
+该文件实现了常用于训练神经网络的各种一阶更新规则。
+每个更新规则接受当前权重和相对于这些权重的损失梯度，并生成下一组权重。
+每个更新规则都有相同的接口:
 
 def update(w, dw, config=None):
 
 Inputs:
-  - w: A numpy array giving the current weights.
-  - dw: A numpy array of the same shape as w giving the gradient of the
-    loss with respect to w.
-  - config: A dictionary containing hyperparameter values such as learning
-    rate, momentum, etc. If the update rule requires caching values over many
-    iterations, then config will also hold these cached values.
+  - w: 一个给出当前权重的numpy数组
+  - dw: 一个与w形状相同的numpy数组，给出相对于w的损耗梯度。
+  - config: 一个包含超参数值的字典，如学习率、动量等.
+    如果更新规则需要在多次迭代中缓存值，那么config也会保存这些缓存的值.
 
 Returns:
   - next_w: The next point after the update.
-  - config: The config dictionary to be passed to the next iteration of the
-    update rule.
+  - config: 要传递给更新规则的下一次迭代的配置字典.
 
-NOTE: For most update rules, the default learning rate will probably not
-perform well; however the default values of the other hyperparameters should
-work well for a variety of different problems.
+NOTE: 对于大多数更新规则，默认学习率可能不会很好地执行;
+然而，对于各种不同的问题，其他超参数的默认值应该很好地工作.
 
-For efficiency, update rules may perform in-place updates, mutating w and
-setting next_w equal to w.
+为了提高效率，更新规则可以执行就地更新，改变w并将next_w设置为w.
 """
 
 
 def sgd(w, dw, config=None):
     """
-    Performs vanilla stochastic gradient descent.
+    执行 vanilla 随机梯度下降
 
     config format:
-    - learning_rate: Scalar learning rate.
+    - learning_rate: 标量学习率
     """
     if config is None:
         config = {}
@@ -47,14 +41,11 @@ def sgd(w, dw, config=None):
 
 def sgd_momentum(w, dw, config=None):
     """
-    Performs stochastic gradient descent with momentum.
-
+    利用动量(momentum)执行随机梯度下降
     config format:
-    - learning_rate: Scalar learning rate.
-    - momentum: Scalar between 0 and 1 giving the momentum value.
-      Setting momentum = 0 reduces to sgd.
-    - velocity: A numpy array of the same shape as w and dw used to store a
-      moving average of the gradients.
+    - learning_rate: 标量学习率
+    - momentum: 0和 1之间的标量，给出动量值;设置 momentum=0 将退化到 SGD
+    - velocity: 与 w和 dw形状相同的 numpy数组,用于存储梯度的移动平均值
     """
     if config is None:
         config = {}
@@ -69,7 +60,8 @@ def sgd_momentum(w, dw, config=None):
     ###########################################################################
     # *****START OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
 
-    pass
+    v = config['momentum'] * v - config['learning_rate'] * dw
+
 
     # *****END OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
     ###########################################################################

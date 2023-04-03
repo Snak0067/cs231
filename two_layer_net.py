@@ -172,4 +172,4 @@ def myTest_Two_layer_network():
 
 
 if __name__ == '__main__':
-    myTest_Softmax_and_SVM_loss()
+    myTest_Two_layer_network()

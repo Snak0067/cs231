@@ -14,25 +14,17 @@ from cs231n import optim
 
 class Solver(object):
     """
-    A Solver encapsulates all the logic necessary for training classification
-    models. The Solver performs stochastic gradient descent using different
-    update rules defined in optim.py.
+    A Solver封装了训练分类模型所需的所有逻辑;
+    A Solver用 optim.py中定义的不同更新规则执行随机梯度下降
 
-    The solver accepts both training and validataion data and labels so it can
-    periodically check classification accuracy on both training and validation
-    data to watch out for overfitting.
+    A Solver接受训练和验证数据以及标签，因此它可以定期检查训练数据和验证数据的分类准确性，以注意过度拟合。
 
-    To train a model, you will first construct a Solver instance, passing the
-    model, dataset, and various options (learning rate, batch size, etc) to the
-    constructor. You will then call the train() method to run the optimization
-    procedure and train the model.
+    要训练模型，您将首先构造一个 Solver实例，将模型、数据集和各种选项（学习率、批量大小等）传递给构造函数。
+    然后调用 train()方法来运行优化过程并训练模型。
 
-    After the train() method returns, model.params will contain the parameters
-    that performed best on the validation set over the course of training.
-    In addition, the instance variable solver.loss_history will contain a list
-    of all losses encountered during training and the instance variables
-    solver.train_acc_history and solver.val_acc_history will be lists of the
-    accuracies of the model on the training and validation set at each epoch.
+    在train()方法返回后，model.params将包含在训练过程中在验证集上表现最好的参数。
+    实例变量 solver.loss_history将包含训练期间遇到的所有损失的列表
+    solver.train_acc_history 和 solver.val_acc_hestory 将是每个 epoch的训练和验证集上的模型精度列表。
 
     Example usage might look something like this:
 
@@ -54,14 +46,11 @@ class Solver(object):
     solver.train()
 
 
-    A Solver works on a model object that must conform to the following API:
+    A Solver 处理的模型对象必须符合以下 API:
 
-    - model.params must be a dictionary mapping string parameter names to numpy
-      arrays containing parameter values.
+    - model.params 必须是一个字典，将字符串参数名称映射到包含参数值的numpy数组.
 
-    - model.loss(X, y) must be a function that computes training-time loss and
-      gradients, and test-time classification scores, with the following inputs
-      and outputs:
+    - model.loss(X, y) 必须是一个计算训练时间损失和梯度以及测试时间分类分数的函数，具有以下输入和输出.
 
       Inputs:
       - X: Array giving a minibatch of input data of shape (N, d_1, ..., d_k)
@@ -84,7 +73,7 @@ class Solver(object):
         """
         Construct a new Solver instance.
 
-        Required arguments:
+        必选参数:
         - model: A model object conforming to the API described above
         - data: A dictionary of training and validation data containing:
           'X_train': Array, shape (N_train, d_1, ..., d_k) of training images
@@ -92,28 +81,18 @@ class Solver(object):
           'y_train': Array, shape (N_train,) of labels for training images
           'y_val': Array, shape (N_val,) of labels for validation images
 
-        Optional arguments:
-        - update_rule: A string giving the name of an update rule in optim.py.
-          Default is 'sgd'.
-        - optim_config: A dictionary containing hyperparameters that will be
-          passed to the chosen update rule. Each update rule requires different
-          hyperparameters (see optim.py) but all update rules require a
-          'learning_rate' parameter so that should always be present.
-        - lr_decay: A scalar for learning rate decay; after each epoch the
-          learning rate is multiplied by this value.
-        - batch_size: Size of minibatches used to compute loss and gradient
-          during training.
-        - num_epochs: The number of epochs to run for during training.
-        - print_every: Integer; training losses will be printed every
-          print_every iterations.
-        - verbose: Boolean; if set to false then no output will be printed
-          during training.
-        - num_train_samples: Number of training samples used to check training
-          accuracy; default is 1000; set to None to use entire training set.
-        - num_val_samples: Number of validation samples to use to check val
-          accuracy; default is None, which uses the entire validation set.
-        - checkpoint_name: If not None, then save model checkpoints here every
-          epoch.
+        可选参数:
+        - update_rule: 在 opti.py中给出更新规则名称的字符串,默认值 "SGD".
+        - optim_config: 一个字典，且包含将传递给所选更新规则的超参数。
+            每个更新规则需要不同的超参数（请参阅opti.py）
+            但所有更新规则都需要一个'learning_rate'参数，因此应该始终存在.
+        - lr_decay: 学习速率衰减的标量；在每个epoch之后，学习率乘以该值.
+        - batch_size: 训练过程中用于计算损失和梯度的 mini-batches的大小.
+        - num_epochs: 训练期间要运行的 epoch数量
+        - verbose: Boolean; 如果设置为 false，则在训练期间不会打印任何输出。
+        - num_train_samples: 用于检查训练准确性的训练样本数量；默认值为1000；设置为'None'以使用整个训练集
+        - num_val_samples: 用于检查验证集准确性的验证样本数量；默认值为'None'，它使用整个验证集
+        - checkpoint_name: 如果不是'None'，则在每个epoch的此处保存模型检查点
         """
         self.model = model
         self.X_train = data["X_train"]
@@ -122,25 +101,24 @@ class Solver(object):
         self.y_val = data["y_val"]
 
         # Unpack keyword arguments
-        self.update_rule = kwargs.pop("update_rule", "sgd")
-        self.optim_config = kwargs.pop("optim_config", {})
-        self.lr_decay = kwargs.pop("lr_decay", 1.0)
-        self.batch_size = kwargs.pop("batch_size", 100)
-        self.num_epochs = kwargs.pop("num_epochs", 10)
-        self.num_train_samples = kwargs.pop("num_train_samples", 1000)
-        self.num_val_samples = kwargs.pop("num_val_samples", None)
+        self.update_rule = kwargs.pop("update_rule", "sgd")  # 更新规则名称
+        self.optim_config = kwargs.pop("optim_config", {})  # 包含将传递给所选更新规则的超参数的字典
+        self.lr_decay = kwargs.pop("lr_decay", 1.0)  # 学习速率衰减的标量
+        self.batch_size = kwargs.pop("batch_size", 100)  # 训练期间计算损失和梯度的mini-batches大小.
+        self.num_epochs = kwargs.pop("num_epochs", 10)  # 训练期间要运行的 epoch数量
+        self.num_train_samples = kwargs.pop("num_train_samples", 1000)  # 训练样本数量
+        self.num_val_samples = kwargs.pop("num_val_samples", None)  # 验证样本数量
 
-        self.checkpoint_name = kwargs.pop("checkpoint_name", None)
+        self.checkpoint_name = kwargs.pop("checkpoint_name", None)  # 如果不是'None'，则在每个epoch的此处保存模型检查点
         self.print_every = kwargs.pop("print_every", 10)
-        self.verbose = kwargs.pop("verbose", True)
+        self.verbose = kwargs.pop("verbose", True)  # 如果设置为 false，则在训练期间不会打印任何输出。
 
-        # Throw an error if there are extra keyword arguments
+        # 如果有额外的关键字参数，则抛出错误
         if len(kwargs) > 0:
             extra = ", ".join('"%s"' % k for k in list(kwargs.keys()))
             raise ValueError("Unrecognized arguments %s" % extra)
 
-        # Make sure the update rule exists, then replace the string
-        # name with the actual function
+        # 确保更新规则存在，然后用实际函数替换字符串名字
         if not hasattr(optim, self.update_rule):
             raise ValueError('Invalid update_rule "%s"' % self.update_rule)
         self.update_rule = getattr(optim, self.update_rule)
@@ -168,8 +146,7 @@ class Solver(object):
 
     def _step(self):
         """
-        Make a single gradient update. This is called by train() and should not
-        be called manually.
+        进行单个梯度更新.应由 train()调用的,不应手动调用.
         """
         # Make a minibatch of training data
         num_train = self.X_train.shape[0]
