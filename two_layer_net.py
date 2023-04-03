@@ -225,9 +225,9 @@ def myTest_Solver():
                 show_loss_acc(solver, changed_hyperparameters)
     # batch_size = 200, lr = 0.001000, hidden size = 200.000000, Valid_accuracy: 0.543000
     print('Validation set accuracy: ', best_model.check_accuracy(X_val, y_val, 1000))
-    # Validation set accuracy:  0.543
+    # Validation set accuracy:  0.534
     print('Test set accuracy: ', best_model.check_accuracy(X_test, y_test, 1000))
-    # Test set accuracy:  0.543
+    # Test set accuracy:  0.516
 
 
 if __name__ == '__main__':

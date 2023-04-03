@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b6482ce6-210c-4c41-aac1-a11187145400" name="变更" comment="Tune your hyperparameters">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/two_layer_net.py" beforeDir="false" afterPath="$PROJECT_DIR$/two_layer_net.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -253,7 +254,7 @@
       <workItem from="1680068630974" duration="5875000" />
       <workItem from="1680075492286" duration="4840000" />
       <workItem from="1680138347939" duration="7506000" />
-      <workItem from="1680156393218" duration="35821000" />
+      <workItem from="1680156393218" duration="36757000" />
     </task>
     <task id="LOCAL-00001" summary="cs231">
       <created>1679628143173</created>
@@ -395,7 +396,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680506587111</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Tune your hyperparameters">
+      <created>1680506804171</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1680506804171</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
