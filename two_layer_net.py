@@ -110,7 +110,7 @@ def myTest_Softmax_and_SVM_loss():
     loss, dx = softmax_loss(x, y)
 
     # Test softmax_loss function. Loss should be close to 2.3 and dx error should be around e-8
-    print('\nTesting softmax_loss:')
+    print('/nTesting softmax_loss:')
     print('loss: ', loss)
     print('dx error: ', rel_error(dx_num, dx))
 
@@ -171,7 +171,8 @@ def myTest_Two_layer_network():
             print('%s relative error: %.2e' % (name, rel_error(grad_num, grads[name])))
 
 
-def show_loss_acc(solver):
+def show_loss_acc(solver, changed_hyperparameters):
+    batch_size, lr, hidden_size = changed_hyperparameters
     plt.subplot(2, 1, 1)
     plt.title('Training loss')
     plt.plot(solver.loss_history, 'o')
@@ -185,6 +186,9 @@ def show_loss_acc(solver):
     plt.xlabel('Epoch')
     plt.legend(loc='lower right')
     plt.gcf().set_size_inches(15, 12)
+    save_name = 'twoLayerNet_%d_%f_%d.png' % (batch_size, lr, hidden_size)
+    save_dir = 'C:/Users/Lenovo/Desktop/桌面/cs231/assignment1_colab/assignment1/cs231n/savepic/' + save_name
+    plt.savefig(save_dir)
     plt.show()
 
 
@@ -212,14 +216,18 @@ def myTest_Solver():
                                 num_epochs=10, batch_size=batch_size,
                                 print_every=100)
                 solver.train()
-                print('batch_size = %d, lr = %f, hidden size = %f, Valid_accuracy: %f' % (
+                print('batch_size = %d, lr = %f, hidden size = %d, Valid_accuracy: %f' % (
                     batch_size, lr, hidden_size, solver.best_val_acc))
                 if solver.best_val_acc > best_acc:
                     best_acc = solver.best_val_acc
                     best_model = solver
-                show_loss_acc(solver)
+                changed_hyperparameters = (batch_size, lr, hidden_size)
+                show_loss_acc(solver, changed_hyperparameters)
+    # batch_size = 200, lr = 0.001000, hidden size = 200.000000, Valid_accuracy: 0.543000
     print('Validation set accuracy: ', best_model.check_accuracy(X_val, y_val, 1000))
+    # Validation set accuracy:  0.543
     print('Test set accuracy: ', best_model.check_accuracy(X_test, y_test, 1000))
+    # Test set accuracy:  0.543
 
 
 if __name__ == '__main__':
