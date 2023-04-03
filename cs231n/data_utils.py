@@ -45,7 +45,7 @@ def load_CIFAR10(ROOT):
 
 
 def get_CIFAR10_data(
-    num_training=49000, num_validation=1000, num_test=1000, subtract_mean=True
+        num_training=49000, num_validation=1000, num_test=1000, subtract_mean=True
 ):
     """
     Load the CIFAR-10 dataset from disk and perform preprocessing to prepare
@@ -264,7 +264,7 @@ def load_imagenet_val(num=None):
     # modify the default parameters of np.load
     # https://stackoverflow.com/questions/55890813/how-to-fix-object-arrays-cannot-be-loaded-when-allow-pickle-false-for-imdb-loa
     np_load_old = np.load
-    np.load = lambda *a,**k: np_load_old(*a, allow_pickle=True, **k)
+    np.load = lambda *a, **k: np_load_old(*a, allow_pickle=True, **k)
     f = np.load(imagenet_fn)
     np.load = np_load_old
     X = f["X"]
@@ -274,6 +274,7 @@ def load_imagenet_val(num=None):
         X = X[:num]
         y = y[:num]
     return X, y, class_names
+
 
 def preprocess_data(num_training=49000, num_validation=1000, num_test=1000, num_dev=500):
     """
@@ -321,9 +322,9 @@ def preprocess_data(num_training=49000, num_validation=1000, num_test=1000, num_
     X_dev -= mean_image
 
     # add bias dimension and transform into columns
-    X_train = np.hstack([X_train, np.ones((X_train.shape[0], 1))])
-    X_val = np.hstack([X_val, np.ones((X_val.shape[0], 1))])
-    X_test = np.hstack([X_test, np.ones((X_test.shape[0], 1))])
-    X_dev = np.hstack([X_dev, np.ones((X_dev.shape[0], 1))])
+    # X_train = np.hstack([X_train, np.ones((X_train.shape[0], 1))])
+    # X_val = np.hstack([X_val, np.ones((X_val.shape[0], 1))])
+    # X_test = np.hstack([X_test, np.ones((X_test.shape[0], 1))])
+    # X_dev = np.hstack([X_dev, np.ones((X_dev.shape[0], 1))])
 
     return X_train, y_train, X_val, y_val, X_test, y_test, X_dev, y_dev

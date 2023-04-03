@@ -246,16 +246,14 @@ class Solver(object):
                     % (t + 1, num_iterations, self.loss_history[-1])
                 )
 
-            # At the end of every epoch, increment the epoch counter and decay
-            # the learning rate.
+            # 在每个epoch结束时，递增epoch计数器并衰减学习速率
             epoch_end = (t + 1) % iterations_per_epoch == 0
             if epoch_end:
                 self.epoch += 1
                 for k in self.optim_configs:
                     self.optim_configs[k]["learning_rate"] *= self.lr_decay
 
-            # Check train and val accuracy on the first iteration, the last
-            # iteration, and at the end of each epoch.
+            # 在第一次迭代、最后一次迭代以及每个epoch结束时检查train和val的准确性。
             first_it = t == 0
             last_it = t == num_iterations - 1
             if first_it or last_it or epoch_end:
@@ -272,8 +270,7 @@ class Solver(object):
                 if self.verbose:
                     print(
                         "(Epoch %d / %d) train acc: %f; val_acc: %f"
-                        % (self.epoch, self.num_epochs, train_acc, val_acc)
-                    )
+                        % (self.epoch, self.num_epochs, train_acc, val_acc))
 
                 # Keep track of the best model
                 if val_acc > self.best_val_acc:

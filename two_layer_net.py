@@ -4,11 +4,11 @@
 # @Author :Xiaofeng
 # As usual, a bit of setup
 from __future__ import print_function
-import time
-import numpy as np
-import matplotlib.pyplot as plt
+
+from matplotlib import pyplot as plt
+
 from cs231n.classifiers.fc_net import *
-from cs231n.data_utils import get_CIFAR10_data
+from cs231n.data_utils import get_CIFAR10_data, preprocess_data
 from cs231n.gradient_check import eval_numerical_gradient, eval_numerical_gradient_array
 from cs231n.solver import Solver
 
@@ -171,5 +171,54 @@ def myTest_Two_layer_network():
             print('%s relative error: %.2e' % (name, rel_error(grad_num, grads[name])))
 
 
+def show_loss_acc(solver):
+    plt.subplot(2, 1, 1)
+    plt.title('Training loss')
+    plt.plot(solver.loss_history, 'o')
+    plt.xlabel('Iteration')
+
+    plt.subplot(2, 1, 2)
+    plt.title('Accuracy')
+    plt.plot(solver.train_acc_history, '-o', label='train')
+    plt.plot(solver.val_acc_history, '-o', label='val')
+    plt.plot([0.5] * len(solver.val_acc_history), 'k--')
+    plt.xlabel('Epoch')
+    plt.legend(loc='lower right')
+    plt.gcf().set_size_inches(15, 12)
+    plt.show()
+
+
+def myTest_Solver():
+    best_model = None  # store the best model into this
+    best_acc = 0
+    X_train, y_train, X_val, y_val, X_test, y_test, X_dev, y_dev = preprocess_data()
+    input_size = 32 * 32 * 3
+    num_classes = 10
+    data = {
+        'X_train': X_train,
+        'y_train': y_train,
+        'X_val': X_val,
+        'y_val': y_val
+    }
+
+    for batch_size in [200, 400]:
+        for lr in [1e-3, 1e-4, 1e-5]:
+            for hidden_size in [50, 100, 200]:
+                model = TwoLayerNet(input_size, hidden_size, num_classes)
+                solver = Solver(model, data,
+                                update_rule='sgd',
+                                optim_config={'learning_rate': lr, },
+                                lr_decay=0.95,
+                                num_epochs=10, batch_size=batch_size,
+                                print_every=100)
+                solver.train()
+                print('batch_size = %d, lr = %f, hidden size = %f, Valid_accuracy: %f' % (
+                    batch_size, lr, hidden_size, solver.best_val_acc))
+                if solver.best_val_acc > best_acc:
+                    best_acc = solver.best_val_acc
+                    best_model = solver
+                show_loss_acc(solver)
+
+
 if __name__ == '__main__':
-    myTest_Two_layer_network()
+    myTest_Solver()
