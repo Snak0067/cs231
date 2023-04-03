@@ -218,7 +218,8 @@ def myTest_Solver():
                     best_acc = solver.best_val_acc
                     best_model = solver
                 show_loss_acc(solver)
-
+    print('Validation set accuracy: ', best_model.check_accuracy(X_val, y_val, 1000))
+    print('Test set accuracy: ', best_model.check_accuracy(X_test, y_test, 1000))
 
 
 if __name__ == '__main__':
